@@ -1,17 +1,14 @@
-"use client"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  useSidebar,
 } from "@/components/ui/sidebar";
 import { HomeIcon, LucideIcon } from "lucide-react";
 import { NavMain } from "./navmain";
 import { NavSecondary } from "./navsecondary";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-export function AppSidebar() {
+export async function AppSidebar() {
 
   const mainmenu: {
     main: {
@@ -28,7 +25,13 @@ export function AppSidebar() {
       },
     ],
   };
-  const pathname = usePathname()
+  
+
+  const data = await fetch(`http://localhost:3000/api/niches`,{
+    method:"GET"
+  })
+  const posts = await data.json()
+  console.log(posts);
   
 
   return (

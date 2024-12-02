@@ -14,9 +14,8 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const {data:session,status} = useSession()
   const pathname = usePathname()
-  
   if (status === "loading") {
-    return <Loader></Loader>
+    return <Loader/>
   }
   return (
     <header className={`${pathname === "/login" ? "hidden":""} flex  flex-row justify-between border-b-2 items-center p-2`}>
