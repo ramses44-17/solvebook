@@ -25,15 +25,6 @@ export async function AppSidebar() {
       },
     ],
   };
-  
-
-  const data = await fetch(`http://localhost:3000/api/niches`,{
-    method:"GET"
-  })
-  const posts = await data.json()
-  console.log(posts);
-  
-
   return (
     <Sidebar>
       <SidebarHeader>
